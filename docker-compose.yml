@@ -11,6 +11,7 @@ services:
     volumes:
       - /var/tmp
       - .:/app
+      - /web/log
     depends_on:
       - db
     extends:
