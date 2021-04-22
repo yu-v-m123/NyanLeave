@@ -5,5 +5,7 @@ listen "/var/tmp/unicorn.sock"
 
 # stdout_path "./log/unicorn.stdout.log"
 # stderr_path "./log/unicorn.stderr.log"
-stdout_path = $stderr
-stderr_path = $stdout
+stdout_path = $stdout
+stderr_path = $stderr
+
+timeout 999999999999
