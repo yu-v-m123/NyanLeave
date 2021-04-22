@@ -45,7 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def profile_update
     @user = current_user
     if current_user.update(update_params)
-      # binding.pry
       redirect_to users_mypage_path
       flash[:notice] = "プロフィールを更新しました"
     else
