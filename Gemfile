@@ -39,6 +39,9 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'pry-rails'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
