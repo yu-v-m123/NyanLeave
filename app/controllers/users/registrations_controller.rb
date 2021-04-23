@@ -40,14 +40,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile
     @user = current_user
+    # binding.pry
   end
-
+  
   def profile_update
-    @user = current_user
-    if current_user.update(update_params)
+    # @user = current_user
+    # @cat = Cat.new
+    # binding.pry
+    if @user.update(update_params) && @cat.update(cat_params)
       redirect_to users_mypage_path
       flash[:notice] = "プロフィールを更新しました"
     else
+      flash[:notice] = "プロフィール更新に失敗しました"
       render "profile"
     end
   end
@@ -76,6 +80,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_params
     params.require(:user).permit(:name, :address, :introduction) 
+  end
+
+  def cat_params
+    params.permit(:cat_name, :age) 
   end
   
 end
