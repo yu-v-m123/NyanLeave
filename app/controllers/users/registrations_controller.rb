@@ -38,25 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def profile
-    @user = current_user
-    # binding.pry
-  end
-  
-  def profile_update
-    # @user = current_user
-    # @cat = Cat.new
-    # binding.pry
-    if @user.update(update_params) && @cat.update(cat_params)
-      redirect_to users_mypage_path
-      flash[:notice] = "プロフィールを更新しました"
-    else
-      flash[:notice] = "プロフィール更新に失敗しました"
-      render "profile"
-    end
-  end
-
-  protected
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -70,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    profile_user_registration_path
+    new_profile_path
   end
 
   # The path used after sign up for inactive accounts.
@@ -78,12 +60,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def update_params
-    params.require(:user).permit(:name, :address, :introduction) 
-  end
-
-  def cat_params
-    params.permit(:cat_name, :age) 
-  end
-  
 end
