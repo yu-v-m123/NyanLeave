@@ -3,7 +3,7 @@
 
 <%= form_with model: @profile, url: profile_path, local: true do |f| %>
 <% if @profile.image? %>
-<%= image_tag current_user.profile.image.url, alt: "猫のアイコン" %>
+<%= image_tag current_user.profile.image.url(:icon), alt: "猫のアイコン" %>
 <% else %>
 <%= image_tag "default.jpg", alt: "猫のアイコン" %>
 <% end %>
