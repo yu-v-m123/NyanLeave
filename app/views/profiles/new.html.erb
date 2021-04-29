@@ -1,0 +1,19 @@
+<h1>Profiles#new</h1>
+<p>Find me in app/views/profiles/new.html.erb</p>
+
+<%= form_with model: @profile, url: profiles_path, local: true do |f| %>
+<%= image_tag "default.jpg", alt: "猫のアイコン" %>
+<%= f.label :image %>
+<%= f.file_field :image %>
+<%= f.label :user_name %>
+<%= f.text_field :user_name %>
+<%= f.label :address %>
+<%= f.text_field :address %>
+<%= f.label :introduction %>
+<%= f.text_field :introduction %>
+<%= f.label :cat_name %>
+<%= f.text_field :cat_name %>
+<%= f.label :age %>
+<%= f.text_field :age %>
+<%= f.submit %>
+<% end %>
