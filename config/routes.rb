@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'profiles/new'
   root "home#index"
   
   devise_for :users, controllers: {

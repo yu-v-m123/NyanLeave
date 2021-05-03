@@ -1,6 +1,3 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
-
 <%= form_with model: @profile, url: profile_path, local: true do |f| %>
 <% if @profile.image? %>
 <%= image_tag current_user.profile.image.url(:icon), alt: "猫のアイコン" %>
