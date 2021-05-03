@@ -1,34 +1,99 @@
 header {
-  background-color: #222;
+  background-color: #8acbc7;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  .header-container {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    .header-right {
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 auto;
+      padding-right: 20px;
+      &-list {
+        @include menu-list;
+        display: flex;
+        & .list-item {
+          margin: 0 15px;
+          transition: $transition-time;
+          &:hover {
+            @include text-hover;
+          }
+          & .list-link {
+            @include menu-link;
+            padding: 10px;
+          }
+        }
+      }
+    }
+    .header-logo {
+      padding-left: 20px;
+    }
+    .btn-outline-light {
+      font-weight: 700;
+      border: 2px solid #fff;
+    }
+    .btn-primary {
+      font-weight: 700;
+      border: 2px solid #0075fa;
+      &:hover {
+      border: 2px solid #025abe;
+      background-color: #025abe;
+      opacity: 1;
+      }
+    }
+  }
+}
+.dropdown-toggle::after {
+  padding-top: 15px;
+}
+.btn-secondary {
+  color: $font-color;
+  background-color: #8acbc7;
+  border-color: #8acbc7;
+  padding-top: 6px;
+  height: 60px;
+  &:hover {
+    color: $font-color;
+    border-color: #a5dfdb;
+    background-color: #a5dfdb;
+  }
+  & .user-icon-img {
+    border-radius: 50%;
+  }
+}
+.show>.btn-secondary.dropdown-toggle {
+  color: $font-color;
+  background-color: #caf7f4;
+  border-color: #caf7f4;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 auto;
-}
-
-.header-list {
-  display: flex;
-}
-
-.list {
-  margin: 0 10px;
-}
-
-.user-icon {
-  margin-right: 20px;
-}
-
-.user-icon-img {
-  border-radius: 50%;
-}
-
-.navbar-collapse {
-  background-color: blue;
+.dropdown-menu {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 1px rgba(0.1, 0.1, 0.1, 0.1);
+  padding: 0;
+  & .nav-item {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+    transition: $transition-time;
+    &:nth-child(2) {
+      padding: 20px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    &:hover {
+      @include text-hover;
+    }
+    &-link {
+      text-decoration: none;
+      color: $font-color;
+      padding: 10px;
+    }
+  }
 }

@@ -4,34 +4,35 @@
       <%= link_to image_tag("/assets/logo.png"), root_path %>
     </div>
     <div class="header-right">
-      <ul class="header-list">
+      <ul class="header-right-list">
         <% if user_signed_in? && current_user.profile.present? %>
-        <li class="list"><%= link_to "メッセージ" %></li>
-        <li class="list"><%= link_to "猫を預ける" %></li>
-        <li class="list"><%= link_to "猫をお世話する" %></li>
+        <li class="list-item"><%= link_to "メッセージ", root_path, class: "list-link" %></li>
+        <li class="list-item"><%= link_to "猫を預ける", root_path, class: "list-link" %></li>
+        <li class="list-item"><%= link_to "猫をお世話する", root_path, class: "list-link" %></li>
         <% elsif user_signed_in? && current_user.profile.nil? %>
         <% else %>
-        <li class="list"><%= link_to "会員登録", new_user_registration_path %></li>
-        <li class="list"><%= link_to "ログイン", new_user_session_path %></li>
+        <li class="list-item"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light" %></li>
+        <li class="list-item"><%= link_to "会員登録", new_user_registration_path, class: "btn btn-primary" %></li>
         <% end %>
       </ul>
       <!-- ハンバーガーメニュー -->
-      <nav class="hamburger-menu">
+      <nav class="dropdown">
         <% if user_signed_in? && current_user.profile.present? %>
-        <a class="user-icon" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= image_tag current_user.profile.image.url(:mini), class: "user-icon-img", alt: "猫のアイコン" %>
         </a>
         <!-- ナビゲーションメニュー -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user) %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
-        </div>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li class="nav-item">
+            <%= link_to "マイページ", user_path(current_user), class: "nav-item-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "登録情報変更", edit_user_registration_path, class: "nav-item-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item-link" %>
+          </li>
+        </ul>
         <% end %>
       </nav>
     </div>
