@@ -3,9 +3,6 @@
 @import "config/font";
 @import "config/mixin";
 @import "config/variables";
-@import "header";
-main {
-  background-color: #fff6e9;
-  padding-top: 100px;
-  padding-bottom: 1500px;
-}
+@import "layouts/header";
+@import "layouts/main";
+@import "layouts/footer";
