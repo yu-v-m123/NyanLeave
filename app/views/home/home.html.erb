@@ -1,0 +1,16 @@
+<div class="home">
+  <div class="cover">
+    <%= image_tag "large-logo.png", class: "cover-img", alt: "ロゴ画像" %>
+  </div>
+  <ul class="btn-box">
+    <li class="btn-list">
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary large-btn" %>
+    </li>
+    <li class="btn-list">
+      <%= link_to "会員登録", new_user_registration_path, class: "btn btn-success large-btn" %>
+    </li>
+  </ul>
+  <div class="guest-login">
+    <%= link_to "ゲストでログイン", root_path, class: "guest-login-text" %>
+  </div>
+</div>
