@@ -11,8 +11,8 @@
         <li class="list-item"><%= link_to "猫をお世話する", root_path, class: "list-link" %></li>
         <% elsif user_signed_in? && current_user.profile.nil? %>
         <% else %>
-        <li class="list-item"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light" %></li>
-        <li class="list-item"><%= link_to "会員登録", new_user_registration_path, class: "btn btn-primary" %></li>
+        <li class="list-item"><%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %></li>
+        <li class="list-item"><%= link_to "会員登録", new_user_registration_path, class: "btn btn-success" %></li>
         <% end %>
       </ul>
       <div class="dropdown">

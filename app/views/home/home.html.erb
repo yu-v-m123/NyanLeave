@@ -1,0 +1,34 @@
+<div class="home">
+  <div class="home-cover">
+    <div class="logo-area">
+      <%= image_tag "large-logo.png", class: "large-logo-img", alt: "ロゴ画像" %>
+    </div>
+    <ul class="btn-box">
+      <li class="btn-list">
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary large-btn" %>
+      </li>
+      <li class="btn-list">
+        <%= link_to "会員登録", new_user_registration_path, class: "btn btn-success large-btn" %>
+      </li>
+    </ul>
+    <div class="guest-login">
+      <%= link_to "ゲストでログイン", root_path, class: "guest-login-text" %>
+    </div>
+  </div>
+  <div class="home-contents">
+    <h1 class="home-contents-title">
+      <span>NyanLeave<span> とは？
+    </h1>
+    <div class="home-contents-main">
+      <p class="home-contents-main-text">
+        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。<br>
+        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。<br>
+        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。<br>
+        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+      </p>
+      <div class="home-contents-main-image">
+        <%= image_tag "cat-image.jpg", class: "cat-image", alt: "猫の画像" %>
+      </div>
+    </div>
+  </div>
+</div>
