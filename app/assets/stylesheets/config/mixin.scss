@@ -1,0 +1,14 @@
+@mixin menu-list {
+  list-style: none;
+  color: #fff;
+}
+
+@mixin menu-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+@mixin text-hover {
+  transition: 0.15s;
+  opacity: 0.5;
+}
