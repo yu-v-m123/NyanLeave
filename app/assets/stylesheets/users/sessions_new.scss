@@ -1,0 +1,52 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 80px;
+  border: $contents-border;
+  max-width: 600px;
+  border-radius: 10px;
+  &-title {
+    font-size: 32px;
+  }
+  &-fields {
+    margin: 40px 0 60px;
+    .field-label {
+      padding: 30px 0 5px;
+    }
+    .field-area {
+      .text-field {
+        width: 300px;
+        padding: 5px;
+        border-radius: 8px;
+        border: $form-border;
+        font-size: 18px;
+        &:focus {
+          @include form-focus;
+        }
+      }
+    }
+  }
+  .transition {
+    width: 70%;
+    padding-top: 30px;
+    border-top: $form-border;
+    text-align: center;
+  }
+  .actions {
+    padding-top: 50px;
+    .actions-signin {
+      @include account-btn;
+    }
+  }
+  .transition a {
+    text-decoration: none;
+    color: #5ca5a0;
+    &:hover {
+      color: #2d7570;
+    }
+  }
+}
