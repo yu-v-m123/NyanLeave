@@ -24,6 +24,9 @@
         border-radius: 8px;
         border: $form-border;
         font-size: 18px;
+        &:focus {
+          @include form-focus;
+        }
       }
     }
   }
