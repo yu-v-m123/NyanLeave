@@ -29,3 +29,17 @@
     transition: $transition-time;
   }
 }
+
+@mixin link-jump {
+  text-decoration: none;
+  color: #5ca5a0;
+  &:hover {
+    color: #2d7570;
+  }
+}
+
+@mixin form-focus {
+  outline: 0;
+  box-shadow: 0px 0px 10px 0px #8acbc7;
+  border-color: #8acbc7;
+}
