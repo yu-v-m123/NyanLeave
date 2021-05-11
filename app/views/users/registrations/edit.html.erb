@@ -47,6 +47,6 @@
     <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
   </div>
 
-  <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete %>
+  <%= button_to "アカウントを削除", registration_path(resource_name), class: "delete-btn", data: { confirm: "本当にアカウントを削除するかにゃ？", cancel: "やめる", commit: "削除する" }, title: "確認", method: :delete %>
 
 </div>

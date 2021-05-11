@@ -55,4 +55,16 @@
       @include link-jump;
     }
   }
+  .delete-btn {
+    border: none;
+    background-color: #fff;
+    color: #5ca5a0;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    &:hover {
+      color: #2d7570;
+    }
+  }
 }
