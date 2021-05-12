@@ -13,9 +13,10 @@
     .mypage-profile {
       margin-right: 70px;
       background-color: #fff;
-      padding: 40px 100px;
+      padding: 40px 80px;
       border: 2px solid #efefef;
       border-radius: 10px;
+      width: 550px;
       &-top {
         display: flex;
         align-items: center;
@@ -51,7 +52,7 @@
           }
           &-text {
             padding-left: 20px;
-            width: 300px;
+            width: 100%;
             line-height: 1.8;
           }
         }
