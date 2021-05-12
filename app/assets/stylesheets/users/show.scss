@@ -1,0 +1,74 @@
+.mypage {
+  margin-top: 60px;
+  &-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    .mypage-profile {
+      margin-right: 70px;
+      background-color: #fff;
+      padding: 40px 80px;
+      border: 2px solid #efefef;
+      border-radius: 10px;
+      width: 550px;
+      &-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        &-image {
+          border-radius: 50%;
+          border: 1px solid #222;
+          .mypage-cat {
+            border-radius: 50%;
+          }
+        }
+        &-cat {
+          font-size: 26px;
+          &-list {
+            padding: 10px 0 10px 20px;
+          }
+        }
+      }
+      &-bottom {
+        padding-top: 10px;
+        &-user {
+          padding-left: 20px;
+          font-size: 18px;
+        }
+        &-introduction {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 30px;
+          &-title {
+            font-size: 22px;
+            padding: 10px 0 15px 20px;
+          }
+          &-text {
+            padding-left: 20px;
+            width: 100%;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+    .mypage-link {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      &-list {
+        font-size: 22px;
+        margin: 30px 0;
+        .transition-link {
+          @include link-jump;
+        }
+      }
+    }
+  }
+}

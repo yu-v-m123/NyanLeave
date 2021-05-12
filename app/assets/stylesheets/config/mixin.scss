@@ -12,3 +12,34 @@
   transition: 0.15s;
   opacity: 0.5;
 }
+
+@mixin account-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  background-color: #8acbc7;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  transition: $transition-time;
+  &:hover {
+    opacity: 0.8;
+    transition: $transition-time;
+  }
+}
+
+@mixin link-jump {
+  text-decoration: none;
+  color: #5ca5a0;
+  &:hover {
+    color: #2d7570;
+  }
+}
+
+@mixin form-focus {
+  outline: 0;
+  box-shadow: 0px 0px 10px 0px #8acbc7;
+  border-color: #8acbc7;
+}
