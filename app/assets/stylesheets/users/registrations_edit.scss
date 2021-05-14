@@ -16,8 +16,8 @@
     margin: 40px 60px 20px;
     .field-label {
       padding: 30px 0 5px;
-      .required {
-        color: #ff0000;
+      .required::after {
+        @include required;
       }
     }
     .field-area {
@@ -43,6 +43,7 @@
     padding-top: 50px;
     .actions-edit {
       @include account-btn;
+      width: 100%;
     }
   }
   .back-mypage {
