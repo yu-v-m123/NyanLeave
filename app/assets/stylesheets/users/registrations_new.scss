@@ -40,6 +40,7 @@
     padding-top: 50px;
     .actions-signup {
       @include account-btn;
+      width: 100%;
     }
   }
   .transition a {

@@ -15,7 +15,7 @@
         <h4 class="mypage-profile-bottom-user">飼い主さん : <%= current_user.profile.user_name %></h4>
         <div class="mypage-profile-bottom-introduction">
           <h3 class="mypage-profile-bottom-introduction-title">自己紹介</h3>
-          <p class="mypage-profile-bottom-introduction-text"><%= current_user.profile.introduction %></p>
+          <p class="mypage-profile-bottom-introduction-text"><%= safe_join(current_user.profile.introduction.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
