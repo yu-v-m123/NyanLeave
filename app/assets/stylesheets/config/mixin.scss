@@ -21,11 +21,10 @@
   background-color: #8acbc7;
   border: none;
   border-radius: 4px;
-  width: 100%;
   cursor: pointer;
   transition: $transition-time;
   &:hover {
-    opacity: 0.8;
+    opacity: 0.5;
     transition: $transition-time;
   }
 }
@@ -42,4 +41,17 @@
   outline: 0;
   box-shadow: 0px 0px 10px 0px #8acbc7;
   border-color: #8acbc7;
+}
+
+@mixin required {
+  content: "※必須";
+  background-color: #f0ad4e;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 7px;
+  margin: 0px 5px;
+  vertical-align: middle;
+  border-radius: 10px;
+  display: inline-block;
 }
