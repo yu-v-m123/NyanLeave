@@ -6,5 +6,5 @@
 <%= @post.start %>
 <%= @post.end %>
 <%= @post.place %>
-<%= @post.feature %>
+<%= safe_join(@post.feature.split("\n"),tag(:br)) %>
 <%= link_to "依頼登録履歴に戻る", posts_path %>

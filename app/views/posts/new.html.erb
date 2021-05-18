@@ -1,13 +1,34 @@
-<h1>post#new</h1>
-<%= form_with model: @post, local: true do |f| %>
-<%= f.label :start %>
-<%= f.date_field :start %>
-<%= f.label :end %>
-<%= f.date_field :end %>
-<%= f.label :place %>
-<%= f.select :place, {お世話係さんのお家: "お世話係さんのお家", 飼い主さんのお家: "飼い主さんのお家", どちらでもよい: "どちらでもよい"}, {include_blank: "選択してください"} %>
-<%= f.label :feature %>
-<%= f.text_area :feature %>
-<%= f.submit "投稿する" %>
-<% end %>
-<%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+<div class="post-wrapper">
+  <h2 class="post-title">猫ちゃんを預ける</h2>
+  <div class="post-container">
+    <%= form_with model: @post, local: true do |f| %>
+    <div class="post-container-plan">
+      <h3 class="post-container-plan-title"><span>■</span>希望のお世話時期と場所</h3>
+      <div class="post-container-plan-inner">
+        <div class="post-container-plan-inner-box">
+          <h3 class="post-container-plan-inner-box-title">開始日</h3>
+          <%= f.date_field :start, class: "post-container-plan-inner-box-input" %>
+        </div>
+        <div class="post-container-plan-inner-box">
+          <h3 class="post-container-plan-inner-box-title">終了日</h3>
+          <%= f.date_field :end, class: "post-container-plan-inner-box-input" %>
+        </div>
+        <div class="post-container-plan-inner-box">
+          <h3 class="post-container-plan-inner-box-title">お世話場所</h3>
+          <%= f.select :place, {お世話係さんのお家: "お世話係さんのお家", 飼い主さんのお家: "飼い主さんのお家", どちらでもよい: "どちらでもよい"}, {include_blank: "選択してください"}, class: "post-container-plan-inner-box-input" %>
+        </div>
+      </div>
+    </div>
+    <div class="post-container-feature">
+      <h3 class="post-container-feature-title"><span>■</span>特徴</h3>
+      <%= f.text_area :feature, placeholder: "猫ちゃんの性格や特徴を教えて欲しいにゃ！", class: "post-container-feature-text" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "依頼する", class: "actions-new" %>
+    </div>
+    <% end %>
+    <div class="back-mypage">
+      <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+    </div>
+  </div>
+</div>
