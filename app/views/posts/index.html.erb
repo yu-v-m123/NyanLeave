@@ -12,16 +12,14 @@
         </tr>
       </thead>
       <tbody>
-        <% @post.each do |p| %>
-        <tr>
+        <% @posts.each do |p| %>
+        <tr onclick='window.location="<%= post_path(p) %>"' role="link" style="cursor: pointer">
           <td><%= image_tag current_user.profile.image.url(:icon) %></td>
-          <td><%= link_to p.start, post_path(p), style: "display: block;" %></td>
-          <td><%= link_to p.end, post_path(p) %></td>
-          <td><%= link_to p.place, post_path(p) %></td>
-          <td><%= link_to p.place, post_path(p) %></td>
-          <td><%= link_to p.created_at.strftime("%Y-%m-%d"), post_path(p) %></td>
-          <%= link_to "編集", edit_post_path(p) %>
-          <%= link_to "削除", post_path(p) , data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する" }, title: "確認", method: :delete %>
+          <td><%= p.start %></td>
+          <td><%= p.end %></td>
+          <td><%= p.place %></td>
+          <td><%= p.created_at.strftime("%Y-%m-%d") %></td>
+          <td onclick='window.location="<%= edit_post_path(p) %>"' role="link">編集</td>
         </tr>
         <% end %>
       </tbody>
