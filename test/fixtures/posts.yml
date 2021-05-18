@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2021-05-15
+  end: 2021-05-15
+  place: MyString
+  feature: MyText
+  user: one
+  cat: one
+
+two:
+  start: 2021-05-15
+  end: 2021-05-15
+  place: MyString
+  feature: MyText
+  user: two
+  cat: two

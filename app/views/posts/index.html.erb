@@ -1,0 +1,30 @@
+<div class="history-wrapper">
+  <h2 class="history-title">依頼登録履歴</h2>
+  <div class="history-container">
+    <table class="history-table">
+      <thead>
+        <tr class="history-container-title">
+          <th>画像</th>
+          <th>お世話時期</th>
+          <th>お世話日数</th>
+          <th>お世話場所</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @post.each do |p| %>
+        <tr>
+          <td><%= image_tag current_user.profile.image.url(:icon) %></td>
+          <td><%= link_to p.start, post_path(p), style: "display: block;" %></td>
+          <td><%= link_to p.end, post_path(p) %></td>
+          <td><%= link_to p.place, post_path(p) %></td>
+          <td><%= link_to p.place, post_path(p) %></td>
+          <td><%= link_to p.created_at.strftime("%Y-%m-%d"), post_path(p) %></td>
+          <%= link_to "編集", edit_post_path(p) %>
+          <%= link_to "削除", post_path(p) , data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する" }, title: "確認", method: :delete %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

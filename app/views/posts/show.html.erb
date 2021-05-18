@@ -1,0 +1,10 @@
+<h1>post#show</h1>
+<%= image_tag current_user.profile.image.url(:icon) %>
+<%= current_user.profile.age %>
+<%= current_user.profile.address %>
+<%= current_user.profile.user_name %>
+<%= @post.start %>
+<%= @post.end %>
+<%= @post.place %>
+<%= @post.feature %>
+<%= link_to "依頼登録履歴に戻る", posts_path %>
