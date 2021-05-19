@@ -43,8 +43,9 @@
         <p class="detail-container-feature-textarea-content"><%= safe_join(@post.feature.split("\n"),tag(:br)) %></p>
       </div>
     </div>
-    <div class="back-detail">
-      <%= link_to "依頼登録履歴に戻る", posts_path, class: "back-detail-link" %>
-    </div>
+    <ul class="back-detail">
+      <li class="back-detail-list"><%= link_to "編集する", edit_post_path(@post), class: "back-detail-link" %></li>
+      <li class="back-detail-list"><%= link_to "依頼登録履歴に戻る", posts_path, class: "back-detail-link" %></li>
+    </ul>
   </div>
 </div>
