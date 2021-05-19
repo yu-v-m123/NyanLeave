@@ -1,10 +1,50 @@
-<h1>post#show</h1>
-<%= image_tag current_user.profile.image.url(:icon) %>
-<%= current_user.profile.age %>
-<%= current_user.profile.address %>
-<%= current_user.profile.user_name %>
-<%= @post.start %>
-<%= @post.end %>
-<%= @post.place %>
-<%= safe_join(@post.feature.split("\n"),tag(:br)) %>
-<%= link_to "依頼登録履歴に戻る", posts_path %>
+<div class="detail-wrapper">
+  <h2 class="detail-title">あなたの依頼詳細ページ</h2>
+  <div class="detail-container">
+    <div class="detail-container-image">
+      <div class="detail-container-image-box">
+        <%= image_tag current_user.profile.image.url %>
+      </div>
+      <div class="detail-container-image-text">
+        <div class="detail-container-image-text-top">
+          <p class="detail-container-image-text-top-name"><%= current_user.profile.cat_name %></p>
+        </div>
+        <div class="detail-container-image-text-bottom">
+          <p class="detail-container-image-text-bottom-age"><%= current_user.profile.age %> /</p>
+          <p class="detail-container-image-text-bottom-address"><%= current_user.profile.address %></p>
+        </div>
+      </div>
+    </div>
+    <div class="detail-container-user">飼い主さん :
+      <%= link_to current_user.profile.user_name, user_path(current_user), class: "detail-container-user-link" %>
+    </div>
+    <div class="detail-container-plan">
+      <h3 class="detail-container-plan-title"><span>■</span>希望のお世話時期と場所</h3>
+      <table class="detail-container-plan-tables">
+        <tbody class="detail-container-plan-tables-contents">
+          <tr class="detail-container-plan-tables-contents-inner">
+            <td class="detail-container-plan-tables-contents-inner-subject">お世話時期</td>
+            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.start.strftime("%Y年%m月%d日") %></td>
+          </tr>
+          <tr class="detail-container-plan-tables-contents-inner">
+            <td class="detail-container-plan-tables-contents-inner-subject">お世話日数</td>
+            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.end.strftime("%Y年%m月%d日") %></td>
+          </tr>
+          <tr class="detail-container-plan-tables-contents-inner">
+            <td class="detail-container-plan-tables-contents-inner-subject">お世話場所</td>
+            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.place %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="detail-container-feature">
+      <h3 class="detail-container-feature-title"><span>■</span>特徴</h3>
+      <div class="detail-container-feature-textarea">
+        <p class="detail-container-feature-textarea-content"><%= safe_join(@post.feature.split("\n"),tag(:br)) %></p>
+      </div>
+    </div>
+    <div class="back-detail">
+      <%= link_to "依頼登録履歴に戻る", posts_path, class: "back-detail-link" %>
+    </div>
+  </div>
+</div>

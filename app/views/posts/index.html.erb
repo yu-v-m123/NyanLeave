@@ -20,6 +20,7 @@
           <td><%= p.place %></td>
           <td><%= p.created_at.strftime("%Y-%m-%d") %></td>
           <td onclick='window.location="<%= edit_post_path(p) %>"' role="link">編集</td>
+          <td onclick='window.location="<%= post_path(p) data: {confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete} %>"' role="link">削除</td>
         </tr>
         <% end %>
       </tbody>
