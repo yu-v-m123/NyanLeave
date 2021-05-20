@@ -24,11 +24,11 @@
         <tbody class="detail-container-plan-tables-contents">
           <tr class="detail-container-plan-tables-contents-inner">
             <td class="detail-container-plan-tables-contents-inner-subject">お世話時期</td>
-            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.start.strftime("%Y年%m月%d日") %></td>
+            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.start.strftime("%m月%d日") %>〜<%= @post.finish.strftime("%m月%d日") %></td>
           </tr>
           <tr class="detail-container-plan-tables-contents-inner">
             <td class="detail-container-plan-tables-contents-inner-subject">お世話日数</td>
-            <td class="detail-container-plan-tables-contents-inner-text"><%= @post.end.strftime("%Y年%m月%d日") %></td>
+            <td class="detail-container-plan-tables-contents-inner-text"><%= @day %>日間</td>
           </tr>
           <tr class="detail-container-plan-tables-contents-inner">
             <td class="detail-container-plan-tables-contents-inner-subject">お世話場所</td>
