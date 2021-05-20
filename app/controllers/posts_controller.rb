@@ -16,12 +16,16 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿しました"
     else
       render "new"
-      flash[:notice] = "投稿に失敗しました"
     end
   end
 
   def show
     @post = Post.find_by(id: params[:id])
+    if @post.start == @post.finish
+      @day = 1
+    else 
+      @day = ((@post.finish - @post.start)+1).to_int
+    end
   end
 
   def edit
@@ -36,7 +40,6 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       render "edit"
-      flash[:notice] = "投稿の編集失敗しました"
     end
   end
 
@@ -49,6 +52,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:start, :end, :place, :feature).merge(user_id: current_user.id, profile_id: @profile.id)
+    params.require(:post).permit(:start, :finish, :place, :feature).merge(user_id: current_user.id, profile_id: @profile.id)
   end
 end
