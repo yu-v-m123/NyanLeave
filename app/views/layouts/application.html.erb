@@ -13,7 +13,8 @@
 <body>
   <%= render "layouts/header" %>
   <main>
-  <%= flash[:notice]%>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
     <%= yield %>
   </main>
   <%= render "layouts/footer" %>

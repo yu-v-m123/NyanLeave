@@ -1,4 +1,5 @@
 <div class="profile-wrapper">
+  <%= render "shared/error_messages", obj: @profile %>
   <h2 class="profile-title">プロフィール編集</h2>
   <div class="profile-container">
     <%= form_with model: @profile, url: profile_path, local: true do |f| %>
