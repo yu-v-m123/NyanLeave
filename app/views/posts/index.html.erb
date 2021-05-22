@@ -1,29 +1,45 @@
 <div class="history-wrapper">
   <h2 class="history-title">依頼登録履歴</h2>
+  <% if @posts.count == 0 %>
+  <p>まだ依頼は出してないにゃ</p>
+  <% else %>
   <div class="history-container">
-    <table class="history-table">
+    <table class="history-container-table">
+      <p class="history-container-table-count"><%= @posts.count %> 件の依頼を出しているにゃ！</p>
       <thead>
-        <tr class="history-container-title">
+        <tr class="history-container-table-title">
           <th>画像</th>
           <th>お世話時期</th>
           <th>お世話日数</th>
           <th>お世話場所</th>
-          <th>作成日</th>
+          <th>投稿日</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @posts.each do |p| %>
-        <tr onclick='window.location="<%= post_path(p) %>"' role="link" style="cursor: pointer">
-          <td><%= image_tag current_user.profile.image.url(:icon) %></td>
-          <td><%= p.start %></td>
-          <td><%= p.finish %></td>
+        <tr class="history-container-table-content">
+          <td><%= image_tag current_user.profile.image.url(:icon), class: "history-container-table-content-image" %></td>
+          <td><%= p.start.strftime("%m月%d日") %>〜<%= p.finish.strftime("%m月%d日") %></td>
+          <td><%= ((p.finish - p.start)+1).to_int %>日間</td>
           <td><%= p.place %></td>
-          <td><%= p.created_at.strftime("%Y-%m-%d") %></td>
-          <td onclick='window.location="<%= edit_post_path(p) %>"' role="link">編集</td>
-          <td onclick='window.location="<%= post_path(p) data: {confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete} %>"' role="link">削除</td>
+          <td><%= p.created_at.strftime("%m月%d日") %></td>
+          <td>
+            <div class="dropdown">
+              <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                •••
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "詳しく見る", post_path(p), class: "dropdown-item add-dropdown-item" %>
+                <%= link_to "編集", edit_post_path(p), class: "dropdown-item add-dropdown-item" %>
+                <%= link_to "削除", post_path(p), data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete }, class: "dropdown-item add-dropdown-item" %>
+              </div>
+            </div>
+          </td>
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+  <% end %>
 </div>
