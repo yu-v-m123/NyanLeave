@@ -46,6 +46,7 @@
     <ul class="back-detail">
       <li class="back-detail-list"><%= link_to "編集する", edit_post_path(@post), class: "back-detail-link" %></li>
       <li class="back-detail-list"><%= link_to "依頼登録履歴に戻る", posts_path, class: "back-detail-link" %></li>
+      <li class="back-detail-list"><%= link_to "削除する", post_path, data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete }, class: "back-detail-link" %></li>
     </ul>
   </div>
 </div>
