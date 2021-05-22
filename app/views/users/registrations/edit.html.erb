@@ -1,8 +1,8 @@
+  <%= render "users/shared/error_messages", resource: resource %>
 <div class="user-edit">
   <h2 class="user-edit-title">登録情報変更</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="user-edit-fields">
     <div class="field-label">

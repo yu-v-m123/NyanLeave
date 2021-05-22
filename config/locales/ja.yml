@@ -1,5 +1,18 @@
 ja:
   activerecord:
+    attributes:
+        profile:
+          image: 猫ちゃんの写真
+          user_name: あなたのお名前
+          address: お住まい
+          cat_name: 猫ちゃんのお名前
+          age: 猫ちゃんのご年齢
+          introduction: 自己紹介
+        post:
+          start: 開始日
+          finish: 終了日
+          place: お世話場所
+          feature: 特徴
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -109,7 +122,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: を入力してください
+      blank: を入力してにゃ
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
       equal_to: は%{count}にしてください
@@ -129,7 +142,7 @@ ja:
       present: は入力しないでください
       required: を入力してください
       taken: はすでに存在します
-      too_long: は%{count}文字以内で入力してください
+      too_long: は%{count}文字以内で入力してにゃ
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
     template:

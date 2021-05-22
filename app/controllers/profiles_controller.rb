@@ -11,7 +11,6 @@ class ProfilesController < ApplicationController
       flash[:notice] = "プロフィールを登録しました。"
       redirect_to user_path(current_user)
     else
-      flash[:notice] = "プロフィール登録に失敗しました。"
       render "new"
     end
   end
@@ -26,7 +25,6 @@ class ProfilesController < ApplicationController
       flash[:notice] = "プロフィールを更新しました。"
       redirect_to user_path(current_user)
     else
-      flash[:notice] = "プロフィール更新に失敗しました。"
       render "edit"
     end
   end
