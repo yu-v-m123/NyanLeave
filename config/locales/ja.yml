@@ -123,7 +123,7 @@ ja:
     messages:
       accepted: を受諾してください
       blank: を入力してにゃ
-      confirmation: と%{attribute}の入力が一致しません
+      confirmation: と%{attribute}の入力が一致しないにゃ
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
@@ -141,7 +141,7 @@ ja:
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
       required: を入力してください
-      taken: はすでに存在します
+      taken: はすでに登録されているにゃ
       too_long: は%{count}文字以内で入力してにゃ
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
