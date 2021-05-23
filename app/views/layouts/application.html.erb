@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>NyanLeave | 猫ちゃん預けてみにゃい？</title>
+  <title><%= content_for?(:page_title) ? "NyanLeave | #{yield(:page_title)}" : "NyanLeave" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
