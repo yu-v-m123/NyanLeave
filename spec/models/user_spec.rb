@@ -18,6 +18,19 @@ RSpec.describe User, type: :model do
         user.email = "test"
         expect(user).to_not be_valid
       end
+      it "メールアドレスが6文字未満の場合は無効" do
+        user.email = "a" + "@com"
+        expect(user).to_not be_valid
+      end
+      it "メールアドレスが129文字以上の場合は無効" do
+        user.email = "a" * 125 + "@com"
+        expect(user).to_not be_valid
+      end
+      it "メールアドレスのフォーマットが不正な場合は無効" do
+        expect(FactoryBot.build(:user, email: "test@example,com")).not_to be_valid
+        expect(FactoryBot.build(:user, email: "test.example,com")).not_to be_valid
+        expect(FactoryBot.build(:user, email: "test@+example.com")).not_to be_valid
+      end
       it "メールアドレスが重複している場合は無効" do
         FactoryBot.create(:user, email: "test1@example.com")
         user1 = User.new(email: "test1@example.com")
