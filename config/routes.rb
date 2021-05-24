@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   
+  devise_scope :user do
+    get "signup", to: "users/registrations#new"
+    get "signin", to: "users/sessions#new"
+  end
+
   resources :users, only: [:new, :create, :show]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :posts
