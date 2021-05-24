@@ -131,7 +131,7 @@ ja:
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       inclusion: は一覧にありません
-      invalid: は不正な値です
+      invalid: は不正な値にゃ
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -143,7 +143,7 @@ ja:
       required: を入力してください
       taken: はすでに登録されているにゃ
       too_long: は%{count}文字以内で入力してにゃ
-      too_short: は%{count}文字以上で入力してください
+      too_short: は%{count}文字以上で入力してにゃ
       wrong_length: は%{count}文字で入力してください
     template:
       body: 次の項目を確認してください
