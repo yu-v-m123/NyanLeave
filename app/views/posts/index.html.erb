@@ -1,12 +1,12 @@
 <% content_for(:page_title) {"依頼登録履歴"} %>
 <div class="history-wrapper">
   <h2 class="history-title">依頼登録履歴</h2>
-  <% if @posts.count == 0 %>
+  <% if @user_posts.count == 0 %>
   <p class="no-post">まだ依頼は出してないにゃ</p>
   <% else %>
   <div class="history-container">
     <table class="history-container-table">
-      <p class="history-container-table-count"><%= @posts.count %> 件の依頼を出しているにゃ！</p>
+      <p class="history-container-table-count"><%= @user_posts.count %> 件の依頼を出しているにゃ！</p>
       <thead>
         <tr class="history-container-table-title">
           <th>画像</th>
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @posts.each do |p| %>
+        <% @user_posts.each do |p| %>
         <tr class="history-container-table-content">
           <td><%= image_tag current_user.profile.image.url(:icon), class: "history-container-table-content-image" %></td>
           <td><%= p.start.strftime("%m月%d日") %>〜<%= p.finish.strftime("%m月%d日") %></td>
