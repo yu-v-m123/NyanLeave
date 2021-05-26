@@ -10,18 +10,18 @@ class PostsController < ApplicationController
   end
   
   def create
-    @profile = Profile.find_by(params[:id])
+    @profile = current_user.profile
     @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
-      flash[:notice] = "投稿しました"
+      flash[:notice] = "依頼を投稿したにゃ！"
     else
       render "new"
     end
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     if @post.start == @post.finish
       @day = 1
     else 
@@ -30,24 +30,24 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
-
+  
   def update
-    @profile = Profile.find_by(params[:id])
-    @post = Post.find_by(id: params[:id])
+    @profile = current_user.profile
+    @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:notice] = "投稿を編集しました"
-      redirect_to post_path(@post)
+      flash[:notice] = "依頼を編集したにゃ！"
+      redirect_to post_path(@post.id)
     else
       render "edit"
     end
   end
 
   def destroy
-    post = Post.find_by(id: params[:id])
+    post = Post.find(params[:id])
     post.destroy
-    flash[:notice] = "依頼を削除しました"
+    flash[:notice] = "依頼を削除したにゃ！"
     redirect_to posts_path
   end
 

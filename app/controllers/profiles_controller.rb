@@ -7,23 +7,24 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     if @profile.save
-      flash[:notice] = "プロフィールを登録しました。"
-      redirect_to user_path(current_user)
+      flash[:notice] = "プロフィールを登録したにゃ！"
+      redirect_to current_user
     else
       render "new"
     end
   end
 
   def edit
-    @profile = Profile.find_by(params[:id])
+    @profile = Profile.find(params[:id])
   end
-
+  
   def update
-    @profile = Profile.find_by(params[:id])
+    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
-      flash[:notice] = "プロフィールを更新しました。"
-      redirect_to user_path(current_user)
+      flash[:notice] = "プロフィールを編集したにゃ！"
+      redirect_to current_user
     else
       render "edit"
     end
@@ -32,6 +33,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:user_name, :address, :introduction, :cat_name, :age, :image).merge(user_id: current_user.id)
+    params.require(:profile).permit(:user_name, :address, :introduction, :cat_name, :age, :image)
   end
 end
