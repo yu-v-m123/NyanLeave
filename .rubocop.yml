@@ -1,0 +1,18 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'app/uploaders/image_uploader.rb'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'config/application.rb'
+    - 'config/spring.rb'
+    - 'config/unicorn.rb'
+    - 'docker/rails/unicorn.rb'
+    - 'spec/spec_helper.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'

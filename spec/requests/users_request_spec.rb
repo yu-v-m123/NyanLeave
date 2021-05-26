@@ -5,6 +5,7 @@ RSpec.describe "Users", type: :request do
     before do
       get signup_path
     end
+
     it "正常なレスポンスを返すこと" do
       expect(response).to have_http_status 200
       expect(response).to be_successful
@@ -17,10 +18,12 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include "既にアカウントをお持ちの方"
     end
   end
+
   describe "GET /signin" do
     before do
       get signin_path
     end
+
     it "正常なレスポンスを返すこと" do
       expect(response).to have_http_status 200
       expect(response).to be_successful
@@ -32,16 +35,16 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include "初めての登録ですか？"
     end
   end
+
   describe "GET /users/show" do
     let(:user) { create :user }
     let!(:profile) { create :profile, user_id: user.id }
+
     before do
       signin(user)
-      # profile = { create :profile, user_id: user.id }
-      # user.profile_id = profile.id
       get user_path(user.id)
-      # binding.pry
     end
+
     it "正常なレスポンスを返すこと" do
       expect(response).to have_http_status 200
       expect(response).to be_successful
