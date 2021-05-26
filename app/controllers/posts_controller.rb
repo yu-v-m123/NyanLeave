@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     @profile = current_user.profile
     @post = Post.new(post_params)
     if @post.save
-      binding.pry
       redirect_to posts_path
       flash[:notice] = "依頼を投稿したにゃ！"
     else
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "依頼を編集したにゃ！"
-      redirect_to post_path(@post)
+      redirect_to post_path(@post.id)
     else
       render "edit"
     end
