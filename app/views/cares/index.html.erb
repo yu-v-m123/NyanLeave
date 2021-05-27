@@ -1,0 +1,18 @@
+<% content_for(:page_title) {"猫ちゃんのお世話依頼"} %>
+<div class="caresaaaa-wrapper">
+  <h2 class="caresaaaa-title">猫ちゃんのお世話依頼</h2>
+  <div class="caresaaaa-container">
+    <p>全 <%= @count %> 件の依頼が来てるにゃ！</p>
+    <div class="caresaaaa-container-post">
+      <% @posts.each do |p| %>
+      <%= link_to care_path(p) do %>
+      <%= image_tag p.profile.image.url(:icon) %>
+      <%= p.profile.cat_name %>
+      <%= p.profile.age %>
+      <%= p.profile.address %>
+      <%= p.feature %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
