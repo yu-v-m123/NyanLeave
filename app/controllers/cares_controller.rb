@@ -4,6 +4,7 @@ class CaresController < ApplicationController
   def index
     @posts = Post.all
     @count = @posts.count
+    @like = Like.new
   end
 
   def show
@@ -13,6 +14,7 @@ class CaresController < ApplicationController
     else
       @day = ((@post.finish - @post.start) + 1).to_int
     end
+    @like = Like.new
   end
   
   def owner
