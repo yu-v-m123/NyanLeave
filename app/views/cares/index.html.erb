@@ -1,18 +1,43 @@
 <% content_for(:page_title) {"猫ちゃんのお世話依頼"} %>
-<div class="caresaaaa-wrapper">
-  <h2 class="caresaaaa-title">猫ちゃんのお世話依頼</h2>
-  <div class="caresaaaa-container">
-    <p>全 <%= @count %> 件の依頼が来てるにゃ！</p>
-    <div class="caresaaaa-container-post">
-      <% @posts.each do |p| %>
-      <%= link_to care_path(p) do %>
-      <%= image_tag p.profile.image.url(:icon) %>
-      <%= p.profile.cat_name %>
-      <%= p.profile.age %>
-      <%= p.profile.address %>
-      <%= p.feature %>
-      <% end %>
-      <% end %>
-    </div>
+<div class="cares-request-wrapper">
+  <h2 class="cares-request-title">猫ちゃんのお世話依頼</h2>
+  <div class="cares-request-container">
+  <%
+=begin%>
+ <p>全 <%= @count %> 件の依頼が来てるにゃ！</p> 
+<%
+=end%>
+    <% @posts.each do |p| %>
+      <div class="cares-request-container-card">
+        <div class="cares-request-container-post">
+          <%= link_to care_path(p), class: "cares-request-container-post-link" do %>
+            <div class="cares-request-container-post-link-box">
+              <%= image_tag p.profile.image.url(:icon), class: "cares-request-container-post-link-box-image" %>
+            </div>
+            <div class="cares-request-container-post-link-profile">
+              <div class="cares-request-container-post-link-profile-top">
+                <%= p.profile.cat_name %>
+              </div>
+              <div class="cares-request-container-post-link-profile-bottom">
+                <%= p.profile.age %>
+                <%= p.profile.address %>
+              </div>
+            </div>
+            <div class="cares-request-container-post-link-feature">
+              <%= p.feature %>
+            </div>
+          <% end %>
+        </div>
+        <% if current_user.already_liked?(p) %>
+          <div class="cares-request-container-post-good">
+            <%= button_to "★ 気ににゃる済み", post_like_path(p), method: :delete %>
+          </div>
+        <% else %>
+          <div class="cares-request-container-post-good">
+            <%= button_to '☆ 気ににゃる', post_like_path(p) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
