@@ -19,22 +19,21 @@
                 <%= p.profile.cat_name %>
               </div>
               <div class="cares-request-container-post-link-profile-bottom">
-                <%= p.profile.age %>
-                <%= p.profile.address %>
+                <%= p.profile.age %> / <%= p.profile.address %>
               </div>
             </div>
             <div class="cares-request-container-post-link-feature">
-              <%= p.feature %>
+              <p class="cares-request-container-post-link-feature-text"><%= p.feature %></p>
             </div>
           <% end %>
         </div>
         <% if current_user.already_liked?(p) %>
           <div class="cares-request-container-post-good">
-            <%= button_to "★ 気ににゃる済み", post_like_path(p), method: :delete %>
+            <%= button_to "★ 気ににゃる済み", post_like_path(p), method: :delete, class: "good-already-btn" %>
           </div>
         <% else %>
           <div class="cares-request-container-post-good">
-            <%= button_to '☆ 気ににゃる', post_like_path(p) %>
+            <%= button_to '☆ 気ににゃる', post_like_path(p), class: "good-btn" %>
           </div>
         <% end %>
       </div>
