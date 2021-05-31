@@ -14,7 +14,6 @@ class CaresController < ApplicationController
     else
       @day = ((@post.finish - @post.start) + 1).to_int
     end
-    @like = Like.new
   end
   
   def owner

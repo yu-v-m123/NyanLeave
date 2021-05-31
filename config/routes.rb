@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :posts do
-    resource :like, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
   resources :cares, only: [:index, :show]
   get "cares/owner/:id", to: "cares#owner", as: "care_owner"

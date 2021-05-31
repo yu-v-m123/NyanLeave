@@ -1,5 +1,7 @@
-<% if current_user.already_liked?(p) %>
-  <%= button_to "★ 気ににゃる済み", post_like_path(p), method: :delete, remote: true, class: "like-already-btn" %>
-<% else %>
-  <%= button_to '☆ 気ににゃる', post_like_path(p), remote: true, class: "like-btn" %>
+<% if user_signed_in? %>
+  <% if current_user.already_liked?(p) %>
+    <%= button_to "★ 気ににゃる済み", post_likes_path(p.id), method: :delete, remote: true, class: "like-already-btn" %>
+  <% else %>
+    <%= button_to '☆ 気ににゃる', post_likes_path(p.id), remote: true, class: "like-btn" %>
+  <% end %>
 <% end %>
