@@ -62,16 +62,16 @@
           }
         }
       }
-      &-good {
-        .good-btn {
-          @include good;
+      &-like {
+        .like-btn {
+          @include like;
           transition: $transition-time;
           &:hover {
             @include text-hover;
           }
         }
-        .good-already-btn {
-          @include already-good;
+        .like-already-btn {
+          @include already-like;
           transition: $transition-time;
           &:hover {
             @include text-hover;

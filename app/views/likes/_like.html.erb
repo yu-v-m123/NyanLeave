@@ -1,0 +1,5 @@
+<% if current_user.already_liked?(p) %>
+  <%= button_to "★ 気ににゃる済み", post_like_path(p), method: :delete, remote: true, class: "like-already-btn" %>
+<% else %>
+  <%= button_to '☆ 気ににゃる', post_like_path(p), remote: true, class: "like-btn" %>
+<% end %>

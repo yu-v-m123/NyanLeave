@@ -56,7 +56,7 @@
   display: inline-block;
 }
 
-@mixin good {
+@mixin like {
   width: 60%;
   height: 40px;
   padding: 5px;
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-@mixin already-good {
+@mixin already-like {
   width: 60%;
   height: 40px;
   padding: 5px;
