@@ -1,0 +1,51 @@
+<% content_for(:page_title) {"#{@post.profile.cat_name}の依頼詳細ページ"} %>
+<div class="cares-wrapper">
+  <h2 class="cares-title"><%= @post.profile.cat_name %>の依頼詳細ページ</h2>
+  <div class="cares-container">
+    <div class="cares-container-image">
+      <div class="cares-container-image-box">
+        <%= image_tag @post.profile.image.url %>
+      </div>
+      <div class="cares-container-image-text">
+        <div class="cares-container-image-text-top">
+          <p class="cares-container-image-text-top-name"><%= @post.profile.cat_name %></p>
+        </div>
+        <div class="cares-container-image-text-bottom">
+          <p class="cares-container-image-text-bottom-age"><%= @post.profile.age %> /</p>
+          <p class="cares-container-image-text-bottom-address"><%= @post.profile.address %></p>
+        </div>
+      </div>
+    </div>
+    <div class="cares-container-user">飼い主さん :
+      <%= link_to @post.profile.user_name, care_owner_path(@post.user.id), class: "cares-container-user-link" %>
+    </div>
+    <div class="cares-container-plan">
+      <h3 class="cares-container-plan-title"><span>■</span>希望のお世話時期と場所</h3>
+      <table class="cares-container-plan-tables">
+        <tbody class="cares-container-plan-tables-contents">
+          <tr class="cares-container-plan-tables-contents-inner">
+            <td class="cares-container-plan-tables-contents-inner-subject">お世話時期</td>
+            <td class="cares-container-plan-tables-contents-inner-text"><%= @post.start.strftime("%m月%d日") %>〜<%= @post.finish.strftime("%m月%d日") %></td>
+          </tr>
+          <tr class="cares-container-plan-tables-contents-inner">
+            <td class="cares-container-plan-tables-contents-inner-subject">お世話日数</td>
+            <td class="cares-container-plan-tables-contents-inner-text"><%= @day %>日間</td>
+          </tr>
+          <tr class="cares-container-plan-tables-contents-inner">
+            <td class="cares-container-plan-tables-contents-inner-subject">お世話場所</td>
+            <td class="cares-container-plan-tables-contents-inner-text"><%= @post.place %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cares-container-feature">
+      <h3 class="cares-container-feature-title"><span>■</span>特徴</h3>
+      <div class="cares-container-feature-textarea">
+        <p class="cares-container-feature-textarea-content"><%= safe_join(@post.feature.split("\n"),tag(:br)) %></p>
+      </div>
+    </div>
+    <%= link_to "飼い主さんのマイページ", care_owner_path(@post.user.id), class: "back-cares-link" %></li>
+    <%= link_to "お世話依頼に戻る", cares_path, class: "back-cares-link" %></li>
+    </ul>
+  </div>
+</div>

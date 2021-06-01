@@ -1,0 +1,124 @@
+.cares-wrapper {
+  margin-top: 60px;
+  .cares-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  .cares-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #fff;
+    padding: 60px 80px;
+    border: $contents-border;
+    border-radius: 10px;
+    width: 800px;
+    &-image {
+      position: relative;
+      &-box {
+        border: 1px solid #222;
+      }
+      &-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 30px 15px 20px 15px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 55%, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0));
+        text-shadow:1px 1px 0 #fff,-1px 1px 0 #fff,1px -1px 0 #fff,-1px -1px 0 #fff;
+        letter-spacing: 3px;
+        &-top {
+          padding-bottom: 10px;
+          font-size: 22px;
+        }
+        &-bottom {
+          display: flex;
+          font-size: 16px;
+          &-address {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+    &-user {
+      width: 100%;
+      padding: 15px 0 0 100px;
+      font-size: 18px;
+      &-link {
+        @include link-jump;
+      }
+    }
+    &-plan {
+      margin-top: 60px;
+      width: 100%;
+      &-title {
+        font-size: 26px;
+        padding-bottom: 15px;
+        span {
+          color: $background-color;
+        }
+      }
+      &-tables {
+        margin: 0 auto;
+        width: 100%;
+        &-contents {
+          display: block;
+          border: $contents-border;
+          border-radius: 10px;
+          padding: 35px;
+          font-size: 20px;
+          &-inner {
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            display: block;
+            border-bottom: $contents-border;
+            &:last-child {
+              padding: 0 0 0 15px;
+              margin: 0;
+              border: none;
+            }
+            &-text {
+              padding-left: 40px;
+            }
+          }
+        }
+      }
+    }
+    &-feature {
+      margin: 60px 0 40px 0;
+      width: 100%;
+      &-title {
+        font-size: 26px;
+        padding-bottom: 15px;
+        span {
+          color: $background-color;
+        }
+      }
+      &-textarea {
+        padding: 25px;
+        background-color: #efefef;
+        border-radius: 10px;
+        min-height: 300px;
+        height: auto;
+        &-content {
+          font-size: 18px;
+          letter-spacing: 2px;
+          line-height: 1.3;
+        }
+      }
+    }
+    .back-cares-link {
+      text-align: center;
+      margin: 10px 0;
+      @include link-jump;
+    }
+  }
+}

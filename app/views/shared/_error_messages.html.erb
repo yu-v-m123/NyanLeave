@@ -1,7 +1,7 @@
 <% if obj.errors.any? %>
-  <% obj.errors.full_messages.each do |message| %>
-    <ul>
-      <li><%= message %></li>
-    </ul>
-  <% end %>
+  <script type= "text/javascript">
+    <% obj.errors.full_messages.each do |message| %>
+      toastr.error('<%= message %>');
+    <% end %>
+  </script>
 <% end %>

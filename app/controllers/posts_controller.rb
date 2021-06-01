@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    posts = Post.all
     @user_posts = current_user.posts
+    @count = @user_posts.count
   end
 
   def new
     @post = Post.new
   end
-  
+
   def create
     @profile = current_user.profile
     @post = Post.new(post_params)
@@ -24,15 +24,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.start == @post.finish
       @day = 1
-    else 
-      @day = ((@post.finish - @post.start)+1).to_int
+    else
+      @day = ((@post.finish - @post.start) + 1).to_int
     end
   end
 
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @profile = current_user.profile
     @post = Post.find(params[:id])
@@ -54,6 +54,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:start, :finish, :place, :feature).merge(user_id: current_user.id, profile_id: @profile.id)
+    params.require(:post).permit(:start, :finish, :place, :feature).merge(
+      user_id: current_user.id, profile_id: @profile.id
+    )
   end
 end
