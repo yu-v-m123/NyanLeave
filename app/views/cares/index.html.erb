@@ -1,16 +1,24 @@
 <% content_for(:page_title) {"猫ちゃんのお世話依頼"} %>
 <div class="cares-request-wrapper">
   <h2 class="cares-request-title">猫ちゃんのお世話依頼</h2>
-  <p class="cares-request-count"><span><%= @search_count %></span> 件の依頼が来てるにゃ！</p>
+  <% if @count.blank? %>
+    <p class="cares-request-count">全 <span><%= @count %></span> 件の依頼が来てるにゃ！</p>
+  <% else %>
+    <p class="cares-request-count">全 <span><%= @search_count %></span> 件の依頼が来てるにゃ！</p>
+  <% end %>
   <% if @search_count == 0 %>
     <p class="no-hit">検索結果がヒットしなかったにゃ</p>
   <% else %>
+    <% if @search_posts %>
     <div class="cares-request-container">
-      <% if @search_posts %>
-        <%= render "cares/search", search_posts: @search_posts %>
-      <% else %>
-        <%= render "cares/no_search", posts: @posts %>
-      <% end %>
+      <%= render "cares/search", search_posts: @search_posts %>
     </div>
+    <%= paginate @search_posts %>
+    <% else %>
+    <div class="cares-request-container">
+      <%= render "cares/no_search", posts: @posts %>
+    </div>
+    <%= paginate @posts %>
+    <% end %>
   <% end %>
 </div>
