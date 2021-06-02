@@ -3,6 +3,14 @@
     <div class="header-logo">
       <%= link_to image_tag("/assets/logo.png"), root_path %>
     </div>
+    <% if user_signed_in? && current_user.profile.present? %>
+    <div class="searchbox">
+      <%= search_form_for @search, url: cares_path, class: "searchbox-form" do |f| %>
+      <%= f.text_field :profile_address_or_profile_age_or_feature_cont_all, placeholder: '都道府県や特徴を入力してにゃ' , class: "searchbox-area", required: true %>
+      <%= f.submit ("検索"), class: 'searchbox-btn' %>
+      <% end %>
+    </div>
+    <% end %>
     <nav class="header-right">
       <ul class="header-right-list">
         <% if user_signed_in? && current_user.profile.present? %>

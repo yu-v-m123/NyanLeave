@@ -5,6 +5,25 @@
     font-size: 32px;
     font-weight: bold;
   }
+  .cares-request-count {
+    padding-left: 150px;
+    padding-top: 50px;
+    font-size: 20px;
+    & span {
+      font-size: 28px;
+      color: #f3829c;
+    }
+  }
+  .no-hit {
+    font-size: 22px;
+    margin: 80px auto;
+    background-color: #fff;
+    padding: 50px;
+    border: 2px solid #efefef;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+  }
   .cares-request-container {
     display: flex;
     flex-wrap: wrap;
