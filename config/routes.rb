@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     get "signin", to: "users/sessions#new"
   end
   
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    collection do
+      get :likes
+    end
+  end
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :posts do
     resource :likes, only: [:create, :destroy]

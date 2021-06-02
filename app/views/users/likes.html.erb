@@ -1,0 +1,14 @@
+<% content_for(:page_title) {"気ににゃるリスト"} %>
+<p>気ににゃるリスト</p>
+全 <%= @count %> 件 気ににゃっているにゃ！
+<% @likes.each do |like| %>
+<%= link_to care_path(like) do %>
+<%= image_tag like.profile.image.url(:icon) %>
+<%= like.profile.cat_name %>
+<%= like.profile.age %>
+<%= like.profile.address %>
+<%= like.feature %>
+<% end %>
+<% end %>
+<%= paginate @likes %>
+<%= link_to "マイページに戻る", user_path(current_user) %>
