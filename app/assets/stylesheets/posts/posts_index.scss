@@ -16,6 +16,13 @@
     width: 500px;
     text-align: center;
   }
+  .back-mypage {
+    text-align: center;
+    margin-top: 50px;
+    &-link {
+      @include link-jump;
+    }
+  }
   .history-container {
     display: flex;
     flex-direction: column;
