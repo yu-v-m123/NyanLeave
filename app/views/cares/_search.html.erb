@@ -1,0 +1,25 @@
+<% search_posts.each do |p| %>
+<div class="cares-request-container-card">
+  <div class="cares-request-container-post">
+    <%= link_to care_path(p), class: "cares-request-container-post-link" do %>
+    <div class="cares-request-container-post-link-box">
+      <%= image_tag p.profile.image.url(:icon), class: "cares-request-container-post-link-box-image" %>
+    </div>
+    <div class="cares-request-container-post-link-profile">
+      <div class="cares-request-container-post-link-profile-top">
+        <%= p.profile.cat_name %>
+      </div>
+      <div class="cares-request-container-post-link-profile-bottom">
+        <%= p.profile.age %> / <%= p.profile.address %>
+      </div>
+    </div>
+    <div class="cares-request-container-post-link-feature">
+      <p class="cares-request-container-post-link-feature-text"><%= p.feature %></p>
+    </div>
+    <% end %>
+  </div>
+  <div id="likes_buttons_<%= p.id %>" class="cares-request-container-post-like">
+    <%= render "likes/like", p: p %>
+  </div>
+</div>
+<% end %>
