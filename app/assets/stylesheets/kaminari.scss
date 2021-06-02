@@ -1,0 +1,21 @@
+.pagination {
+  justify-content: center;
+}
+
+.page-item.active .page-link {
+  background: $background-color;
+  border-color: $background-color;
+  &:hover {
+    color: #fff;
+    opacity: 0.7;
+  }
+}
+
+.pagination>li>a {
+  color: $background-color;
+  background-color: #fff;
+}
+
+.pagination>li>a:hover {        
+  color: $background-color;
+}
