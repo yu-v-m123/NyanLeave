@@ -3,6 +3,9 @@
   <h2 class="history-title">依頼登録履歴</h2>
   <% if @count == 0 %>
   <p class="no-post">まだ依頼は出してないにゃ</p>
+  <div class="back-mypage">
+    <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+  </div>
   <% else %>
   <div class="history-container">
     <table class="history-container-table">
