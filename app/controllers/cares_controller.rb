@@ -2,7 +2,7 @@ class CaresController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.page(params[:page]).per(12)
+    @posts = Post.includes([:profile]).page(params[:page]).per(12)
     @count = Post.all.count
     @like = Like.new
   end
