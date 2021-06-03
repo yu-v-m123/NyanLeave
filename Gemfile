@@ -45,6 +45,7 @@ gem 'data-confirm-modal'
 gem 'pry-rails'
 gem 'toastr-rails'
 gem 'ransack'
+gem 'kaminari', '~> 0.17.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -65,6 +66,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
+  gem 'bullet'
 end
 
 group :test do

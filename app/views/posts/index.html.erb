@@ -3,10 +3,13 @@
   <h2 class="history-title">依頼登録履歴</h2>
   <% if @count == 0 %>
   <p class="no-post">まだ依頼は出してないにゃ</p>
+  <div class="back-mypage">
+    <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+  </div>
   <% else %>
   <div class="history-container">
     <table class="history-container-table">
-      <p class="history-container-table-count"><span><%= @count %></span> 件の依頼を出しているにゃ！</p>
+      <p class="history-container-table-count">全 <span><%= @count %></span> 件の依頼を出しているにゃ！</p>
       <thead>
         <tr class="history-container-table-title">
           <th>画像</th>
@@ -41,6 +44,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate @user_posts %>
   </div>
   <% end %>
 </div>

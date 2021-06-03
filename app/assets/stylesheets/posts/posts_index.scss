@@ -16,6 +16,13 @@
     width: 500px;
     text-align: center;
   }
+  .back-mypage {
+    text-align: center;
+    margin-top: 50px;
+    &-link {
+      @include link-jump;
+    }
+  }
   .history-container {
     display: flex;
     flex-direction: column;
@@ -28,6 +35,7 @@
     border-radius: 10px;
     width: 1200px;
     &-table {
+      margin-bottom: 80px;
       &-count {
         width: 80%;
         font-size: 20px;

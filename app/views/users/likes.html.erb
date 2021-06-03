@@ -1,0 +1,42 @@
+<% content_for(:page_title) {"気ににゃるリスト"} %>
+<div class="cares-likes-wrapper">
+  <h2 class="cares-likes-title">気ににゃるリスト</h2>
+  <p class="cares-likes-count">全 <span><%= @count %></span> 件 気ににゃっているにゃ！</p>
+    <% if @count == 0 %>
+      <p class="no-hit">まだ気ににゃる依頼はないにゃ</p>
+    <% else %>
+      <div class="cares-likes-container">
+        <% @likes.each do |like| %>
+          <div class="cares-likes-container-card">
+            <div class="cares-likes-container-post">
+              <%= link_to care_path(like), class: "cares-likes-container-post-link" do %>
+                <div class="cares-likes-container-post-link-box">
+                  <%= image_tag like.profile.image.url(:icon), class: "cares-likes-container-post-link-box-image" %>
+                </div>
+                <div class="cares-likes-container-post-link-profile">
+                  <div class="cares-likes-container-post-link-profile-top">
+                    <%= like.profile.cat_name %>
+                  </div>
+                  <div class="cares-likes-container-post-link-profile-bottom">
+                    <%= like.profile.age %> / <%= like.profile.address %>
+                  </div>
+                </div>
+                <div class="cares-likes-container-post-link-feature">
+                  <p class="cares-likes-container-post-link-feature-text">
+                    <%= like.feature %>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+            <div id="likes_buttons_<%= like.id %>" class="cares-likes-container-post-like">
+              <%= render "likes/like", like: like %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @likes %>
+    <% end %>
+  <div class="back-mypage">
+    <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @user_posts = current_user.posts
-    @count = @user_posts.count
+    @user_posts = current_user.posts.page(params[:page]).per(10)
+    @count = current_user.posts.count
   end
 
   def new

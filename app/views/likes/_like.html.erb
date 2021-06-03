@@ -1,7 +1,15 @@
 <% if user_signed_in? %>
-  <% if current_user.already_liked?(p) %>
-    <%= button_to "★ 気ににゃる済み", post_likes_path(p.id), method: :delete, remote: true, class: "like-already-btn" %>
+  <% if p.present? %>
+    <% if current_user.already_liked?(p) %>
+      <%= button_to "★ 気ににゃる済み", post_likes_path(p.id), method: :delete, remote: true, class: "like-already-btn" %>
+    <% else %>
+      <%= button_to '☆ 気ににゃる', post_likes_path(p.id), remote: true, class: "like-btn" %>
+    <% end %>
   <% else %>
-    <%= button_to '☆ 気ににゃる', post_likes_path(p.id), remote: true, class: "like-btn" %>
+    <% if current_user.already_liked?(like) %>
+      <%= button_to "★ 気ににゃる済み", post_likes_path(like.id), method: :delete, remote: true, class: "like-already-btn" %>
+    <% else %>
+      <%= button_to '☆ 気ににゃる', post_likes_path(like.id), remote: true, class: "like-btn" %>
+    <% end %>
   <% end %>
 <% end %>
