@@ -1,0 +1,26 @@
+<%= reviews.count %>件コメント
+<% reviews.each do |review| %>
+  <% unless review.id.nil? %>
+    <li class="review-container">
+        <div class="review-box">
+            <div class="review-avatar">
+                <%= image_tag @user.image.url(:icon), class: "owner-cat", alt: "猫のアイコン" %>
+            </div>
+            <div class="review-text">
+                <p><%= link_to "@#{review.user.profile.user_name}", care_owner_path(review.user.id) %></p>
+                <div class="review-entry">
+                    <%= review.content %>
+                    <% if review.user == current_user %>
+                        <%= link_to review_path(review.user_id, review.id), method: :delete, remote: true, class: "review_destroy" do %>
+                            <p>削除</p>
+                        <% end %>
+                    <% end %>
+                </div>
+                <span class="review-date pull-right">
+                      <%= review.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                </span>
+            </div>
+        </div>
+    </li>
+  <% end %>
+<% end %>

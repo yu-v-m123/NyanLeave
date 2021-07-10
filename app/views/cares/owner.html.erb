@@ -26,4 +26,14 @@
       <li class="owner-link-list"><%= link_to "メッセージを送る", root_path, class: "transition-link" %></li>
     </ul>
   </div>
+  <li id="reviews_area">
+    <%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
+  </li>
+  <hr>
+  <% if user_signed_in? %>
+    <div class="reivew-create">
+      <h3 class="text-left">レビューを投稿する</h3>
+      <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %>
+    </div>
+  <% end %>
 </div>

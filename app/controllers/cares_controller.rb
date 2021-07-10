@@ -19,5 +19,7 @@ class CaresController < ApplicationController
   def owner
     @user = User.find(params[:id])
     @owner = @user.profile
+    @review = Review.new
+    @reviews = @user.reviews.order(created_at: :desc)
   end
 end
