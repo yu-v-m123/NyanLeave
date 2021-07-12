@@ -4,10 +4,10 @@
     <li class="review-container">
         <div class="review-box">
             <div class="review-avatar">
-                <%= image_tag @user.image.url(:icon), class: "owner-cat", alt: "猫のアイコン" %>
+                <%= image_tag review.user.profile.image.url(:icon), class: "owner-cat", alt: "猫のアイコン" %>
             </div>
             <div class="review-text">
-                <p><%= link_to "@#{review.user.profile.user_name}", care_owner_path(review.user.id) %></p>
+                <p><%= link_to "#{review.user.profile.user_name}", care_owner_path(review.user.id) %></p>
                 <div class="review-entry">
                     <%= review.content %>
                     <% if review.user == current_user %>

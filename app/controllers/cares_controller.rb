@@ -20,6 +20,8 @@ class CaresController < ApplicationController
     @user = User.find(params[:id])
     @owner = @user.profile
     @review = Review.new
-    @reviews = @user.reviews.order(created_at: :desc)
+    # @review_owner = Review.find(params[:id])
+    # @review_owner_id = @review_owner.owner_id
+    @reviews = @user.reviews
   end
 end
