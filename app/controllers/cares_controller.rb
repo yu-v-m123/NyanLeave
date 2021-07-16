@@ -20,8 +20,6 @@ class CaresController < ApplicationController
     @user = User.find(params[:id])
     @owner = @user.profile
     @review = Review.new
-    # @review_owner = Review.find(params[:id])
-    # @review_owner_id = @review_owner.owner_id
-    @reviews = @user.reviews
+    @reviews = Review.where(user_id: @user.id).includes(:contributor)
   end
 end

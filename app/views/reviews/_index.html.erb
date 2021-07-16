@@ -4,14 +4,14 @@
     <li class="review-container">
         <div class="review-box">
             <div class="review-avatar">
-                <%= image_tag review.user.profile.image.url(:icon), class: "owner-cat", alt: "猫のアイコン" %>
+                <%= image_tag review.contributor.profile.image.url(:icon), class: "owner-cat", alt: "猫のアイコン" %>
             </div>
             <div class="review-text">
-                <p><%= link_to "#{review.user.profile.user_name}", care_owner_path(review.user.id) %></p>
+                <p><%= link_to "#{review.contributor.profile.user_name}", care_owner_path(review.contributor.id) %></p>
                 <div class="review-entry">
                     <%= review.content %>
-                    <% if review.user == current_user %>
-                        <%= link_to review_path(review.user_id, review.id), method: :delete, remote: true, class: "review_destroy" do %>
+                    <% if review.contributor == current_user %>
+                        <%= link_to review_path(review.contributor_id, review.id), method: :delete, remote: true, class: "review_destroy" do %>
                             <p>削除</p>
                         <% end %>
                     <% end %>

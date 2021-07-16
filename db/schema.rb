@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_172639) do
+ActiveRecord::Schema.define(version: 2021_07_16_101500) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id"
@@ -52,7 +52,8 @@ ActiveRecord::Schema.define(version: 2021_07_13_172639) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "owner_id"
+    t.bigint "contributor_id"
+    t.index ["contributor_id"], name: "index_reviews_on_contributor_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -76,5 +77,6 @@ ActiveRecord::Schema.define(version: 2021_07_13_172639) do
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "users", column: "contributor_id"
   add_foreign_key "users", "reviews"
 end

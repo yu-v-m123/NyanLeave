@@ -14,5 +14,5 @@ class User < ApplicationRecord
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, foreign_key: :contributor_id, dependent: :destroy
 end
