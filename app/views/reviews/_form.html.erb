@@ -1,4 +1,4 @@
 <%= form_with(model: [user, review], url: reviews_path(@user)) do |f| %>
-  <%= f.text_area :content, class: "input-mysize" %>
-  <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+  <%= f.text_area :content, placeholder: "この人への感想を書くにゃ！", class: "review-form" %>
+  <%= f.submit "送信", class: "review-btn" %>
 <% end %>

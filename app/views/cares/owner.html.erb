@@ -22,18 +22,17 @@
     </div>
     <ul class="owner-link">
       <li class="owner-link-list"><%= link_to "依頼詳細ページに戻る", :back, class: "transition-link" %></li>
-      <li class="owner-link-list"><%= link_to "レビューを投稿する", root_path, class: "transition-link" %></li>
       <li class="owner-link-list"><%= link_to "メッセージを送る", root_path, class: "transition-link" %></li>
     </ul>
   </div>
-  <li id="reviews_area">
-    <%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
-  </li>
-  <hr>
   <% if user_signed_in? %>
     <div class="reivew-create">
-      <h3 class="text-left">レビューを投稿する</h3>
+      <p class="reivew-create-title">レビューを投稿する</h3>
       <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %>
     </div>
   <% end %>
+  <hr>
+  <div id="reviews_area" class="reviews-wrapper">
+    <%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
+  </div>
 </div>
