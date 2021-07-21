@@ -14,7 +14,7 @@
     <nav class="header-right">
       <ul class="header-right-list">
         <% if user_signed_in? && current_user.profile.present? %>
-        <li class="list-item"><%= link_to "メッセージ", root_path, class: "list-link" %></li>
+        <li class="list-item"><%= link_to "メッセージ", rooms_path, class: "list-link" %></li>
         <li class="list-item"><%= link_to "猫を預ける", new_post_path, class: "list-link" %></li>
         <li class="list-item"><%= link_to "猫をお世話する", cares_path, class: "list-link" %></li>
         <% elsif user_signed_in? && current_user.profile.nil? %>
