@@ -12,10 +12,12 @@
 
 <body>
   <%= render "layouts/header" %>
+  <div id=wrapper>
   <main>
     <%= yield %>
   </main>
   <%= render "layouts/footer" %>
+  </div>
   <%= render "shared/toastr_messages" %>
 </body>
 
