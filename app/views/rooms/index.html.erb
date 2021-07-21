@@ -1,0 +1,39 @@
+<% content_for(:page_title) {"メッセージ一覧"} %>
+<div class="message-list">
+  <h2 class="message-list-title">メッセージ一覧</h2>
+  <div class="message-list-container">
+    <% if @anotherEntries.present? %>
+    <% @anotherEntries.includes([:room, user: [:profile]]).each do |e| %>
+    <table class="message-list-container-table">
+      <tr>
+        <td>
+          <%= image_tag e.user.profile.image.url(:mini), class: "message-list-container-table-image" %>
+        </td>
+        <td class="message-list-container-table-item">
+          <%= link_to room_path(e.room.id), class: "message-list-container-table-item-link" do %>
+          <%= e.user.profile.user_name %>
+          <% end %>
+        </td>
+        <td class="message-list-container-table-item">
+          <% dm = DirectMessage.find_by(id: e.room.direct_message_ids.last).message %>
+          <%= truncate(dm, length: 10) %>
+        </td>
+        <td class="message-list-container-table-item">
+          <p style="color: #C0C0C0;"><%= e.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+        </td>
+        <td class="message-list-container-table-item">
+          <%= link_to room_path(e.room.id), data: { confirm: "本当にトークルームを削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete }, class: "message-list-container-table-item-decoration" do %>
+          <p class="message-list-container-table-item-link">削除</p>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <% end %>
+    <% else %>
+      <p class="no-message">まだメッセージする相手がいないにゃ</p>
+    <% end %>
+    <div class="back-mypage">
+      <%= link_to "マイページに戻る", user_path(current_user), class: "back-mypage-link" %>
+    </div>
+  </div>
+</div>
