@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
   resources :cares, only: [:index, :show]
   get "cares/owner/:id", to: "cares#owner", as: "care_owner"
+  resources :rooms
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
