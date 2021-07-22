@@ -1,0 +1,38 @@
+.message-room {
+  margin-top: 60px;
+  &-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  &-container {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    min-height: 55vh;
+    &-username {
+      text-align: center;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .link-btn {
+      @include link-jump;
+    }
+    .message-talk {
+      padding-bottom: 20px;
+      &-image {
+        border-radius: 50%;
+      }
+    }
+    .form-control {
+      &:focus {
+        @include form-focus;
+      }
+    }
+    form {
+      margin-top: auto;
+    }
+  }
+}

@@ -23,7 +23,18 @@
     <ul class="owner-link">
       <li class="owner-link-list"><%= link_to "依頼詳細ページに戻る", :back, class: "transition-link" %></li>
       <li class="owner-link-list"><%= link_to "レビューを投稿する", root_path, class: "transition-link" %></li>
-      <li class="owner-link-list"><%= link_to "メッセージを送る", root_path, class: "transition-link" %></li>
+      <% unless @user.id == current_user.id %>
+      <% if @isRoom == true %>
+        <li class="owner-link-message-come"><%= link_to "トークルームに行く", room_path(@roomId), class: "owner-link-message-come-btn" %></li>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, :value=> @user.id %>
+          <% end %>
+          <li class="owner-link-message-start"><%= f.submit "メッセージを始める", class: "owner-link-message-start-btn" %></li>
+        <% end %>
+      <% end %>
+    <% end %>
     </ul>
   </div>
 </div>
