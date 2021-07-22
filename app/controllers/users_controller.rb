@@ -9,5 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @profile = current_user.profile
+    @reviews = Review.where(user_id: current_user.id).includes(:contributor).order(created_at: :desc)
   end
 end
