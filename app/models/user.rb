@@ -15,4 +15,7 @@ class User < ApplicationRecord
     self.likes.exists?(post_id: post.id)
   end
   has_many :reviews, foreign_key: :contributor_id, dependent: :destroy
+  has_many :entries
+  has_many :direct_messages
+  has_many :rooms, through: :entries
 end

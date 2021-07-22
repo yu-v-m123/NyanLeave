@@ -1,0 +1,64 @@
+.message-list {
+  margin-top: 60px;
+  &-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 800px;
+    &-table {
+      width: 100%;
+      margin: 20px 0;
+      background-color: #efefef;
+      border: 1px solid #dadada;
+      border-collapse: separate;
+      border-radius: 7px;
+      padding: 20px;
+      &-image {
+        border-radius: 50%;
+      }
+      &-item {
+        vertical-align: middle;
+        width: 30%;
+        padding: 0 20px;
+        &-decoration {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &-link {
+          color: #5ca5a0;
+          text-decoration: none;
+          &:hover {
+            color: #2d7570;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .no-message {
+      font-size: 22px;
+      margin: auto;
+      background-color: #fff;
+      padding: 50px;
+      border: 2px solid #efefef;
+      border-radius: 10px;
+      width: 500px;
+      text-align: center;
+    }
+    .back-mypage {
+      text-align: center;
+      padding-top: 60px;
+      &-link {
+        @include link-jump;
+      }
+    }
+  }
+}

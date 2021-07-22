@@ -5,6 +5,7 @@
 @import "config/mixin";
 @import "config/variables";
 @import "layouts/header";
+@import "layouts/wrapper";
 @import "layouts/main";
 @import "layouts/footer";
 @import "kaminari";
@@ -23,3 +24,5 @@
 @import "cares/cares_index";
 @import "cares/cares_show";
 @import "cares/cares_owner";
+@import "rooms/rooms_index";
+@import "rooms/rooms_show";

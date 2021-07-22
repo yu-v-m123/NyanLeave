@@ -1,0 +1,34 @@
+<% content_for(:page_title) {"トークルーム"} %>
+<div class="message-room">
+  <h2 class="message-room-title">トークルーム</h2>
+  <div class="message-room-container">
+    <% @entries.includes(user: [:profile]).each do |e| %>
+    <% current_user == e.user ? @class = "current_user" : @class = ""  %>
+    <% if e.user != current_user %>
+      <p class="message-room-container-link <%= @class %>" id="<%= @class %>" data-id="<%= e.user.id %>"><%= link_to "#{e.user.profile.user_name}さんのマイページ", care_owner_path(e.user_id), class: "link-btn" %></p>
+      <p class="message-room-container-username"><%= e.user.profile.user_name %></p>
+    <% else %>
+    <p class="message-room-container-link <%= @class %>" id="<%= @class %>" data-id="<%= e.user.id %>"></p>
+    <% end %>
+    <% end %>
+
+    <hr>
+    <div id="direct_messages" data-room_id="<%= @room.id %>">
+      <%= render @direct_messages.includes([:user]) %>
+    </div>
+
+    <form>
+      <label id="target"></label><br>
+      <input type="text" id="chat-input" data-behavior="room_speaker" placeholder="メッセージを送ってにゃ！" class="form-control">
+    </form>
+  </div>
+</div>
+
+<script>
+  var element = document.getElementById('target');
+  var rect = element.getBoundingClientRect();
+  var position = rect.top;
+  setTimeout(function() {
+    scrollTo(0, position);
+  }, 1000);
+</script>

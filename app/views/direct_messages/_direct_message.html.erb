@@ -1,0 +1,49 @@
+<div class="message-talk">
+  <p class="<%= direct_message.id %> float-<%= direct_message.id %>">
+    <%= image_tag direct_message.user.profile.image.url(:mini), class:"message-talk-image", alt: "猫のアイコン" %>
+  </p>
+  <p class="<%= direct_message.id %>">
+    <span class="<%= direct_message.id %>">
+      <%= direct_message.message %>
+    </span>
+      <p class="time-<%= direct_message.id %>"><%= direct_message.created_at.strftime("%H:%M") %></p>
+  </p><br>
+</div>
+
+<script>
+    var direct_message = <%= direct_message.user.id %>;
+    var dm_user = document.getElementById('current_user');
+    var current_user = dm_user.getAttribute('data-id')
+    if(direct_message == current_user){
+      $('p.' + "float-<%= direct_message.id %>").css('float', 'right');
+      $('p.' + <%= direct_message.id %>).css('text-align', 'right');
+      $('span.' + <%= direct_message.id %>).css({
+        "background-color" : "#9BE061",
+        "display" : "inline-block",
+        "padding" : "15px",
+        "border-radius" : "5px",
+        "margin-right" : "20px",
+        "text-align" : "start",
+        "letter-spacing" : "1.3px",
+        "line-height" : "1.3"
+        });
+      $('p.' + "time-<%= direct_message.id %>").css({
+        "text-align" : "right",
+        "padding" : "5px 65px"
+        });
+    }else{
+      $('p.' + "float-<%= direct_message.id %>").css('float', 'left');
+      $('p.' + <%= direct_message.id %>).css('text-align', 'left');
+      $('span.' + <%= direct_message.id %>).css({
+        "background-color" : "#efefef",
+        "display" : "inline-block",
+        "padding" : "15px",
+        "border-radius" : "5px",
+        "margin-left" : "20px",
+        "text-align" : "start",
+        "letter-spacing" : "1.3px",
+        "line-height" : "1.3"
+        });
+      $('p.' + "time-<%= direct_message.id %>").css('padding', '5px 0 0 65px');
+    }
+</script>
