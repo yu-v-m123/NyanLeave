@@ -28,7 +28,7 @@
   </div>
   <hr>
   <div class="reviews-wrapper">
-    <p class="review-title"><%= current_user.profile.user_name %> へのレビュー (<%= @reviews.count %>)</p>
+    <p class="review-title">あなたへのレビュー (<%= @reviews.count %>)</p>
     <% if @reviews.blank? %>
       <p class="no-review">まだレビューは投稿されてないにゃ</p>
     <% end %>
