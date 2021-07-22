@@ -2,14 +2,20 @@ class ReviewsController < ApplicationController
   def create
     @user = User.find(params[:id])
     @review = @user.reviews.build(review_params)
-    @review.save
-    render :index
+    if @review.save
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "レビューを投稿したにゃ！"
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "レビューを入力してにゃ"
+    end
   end
 
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    render :index
+    redirect_back(fallback_location: root_path)
+    flash[:notice] = "レビューを削除したにゃ！"
   end
 
   private

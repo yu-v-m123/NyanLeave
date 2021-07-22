@@ -1,4 +1,4 @@
-<p class="review-title">レビュー (<%= reviews.count %>)</p>
+<p class="review-title">レビュー</p>
 <% reviews.each do |review| %>
   <% unless review.id.nil? %>
     <li class="review-container">
@@ -14,7 +14,7 @@
             <div class="review-option">
                 <div class="review-entry">
                     <% if review.contributor == current_user %>
-                        <%= link_to review_path(review.contributor_id, review.id), method: :delete, remote: true, class: "review-destroy" do %>
+                        <%= link_to review_path(review.contributor_id, review.id), data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete }, class: "review-destroy" do %>
                             <p>削除</p>
                         <% end %>
                     <% end %>
