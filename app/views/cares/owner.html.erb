@@ -22,8 +22,6 @@
     </div>
     <ul class="owner-link">
       <li class="owner-link-list"><%= link_to "依頼詳細ページに戻る", :back, class: "transition-link" %></li>
-      <li class="owner-link-list"><%= link_to "メッセージを送る", root_path, class: "transition-link" %></li>
-      <li class="owner-link-list"><%= link_to "レビューを投稿する", root_path, class: "transition-link" %></li>
       <% unless @user.id == current_user.id %>
       <% if @isRoom == true %>
         <li class="owner-link-message-come"><%= link_to "トークルームに行く", room_path(@roomId), class: "owner-link-message-come-btn" %></li>
@@ -45,7 +43,7 @@
     </div>
   <% end %>
   <hr>
-  <div id="reviews_area" class="reviews-wrapper">
+  <div class="reviews-wrapper">
     <%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
   </div>
 </div>
