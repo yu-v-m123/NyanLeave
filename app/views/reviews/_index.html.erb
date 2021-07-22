@@ -1,0 +1,35 @@
+<p class="review-title">レビュー</p>
+<% if reviews.blank? %>
+<p class="no-review">まだレビューは投稿されてないにゃ</p>
+<% end %>
+<% reviews.each do |review| %>
+  <% unless review.id.nil? %>
+    <li class="review-container">
+      <div class="review-box">
+        <div class="review-avatar">
+          <%= image_tag review.contributor.profile.image.url(:mini), class: "review-image", alt: "猫のアイコン" %>
+          <% if review.contributor == current_user %>
+            <%= link_to "#{review.contributor.profile.user_name}", user_path(current_user), class: "review-avatar-link" %>
+          <% else %>
+            <%= link_to "#{review.contributor.profile.user_name}", care_owner_path(review.contributor.id), class: "review-avatar-link" %>
+          <% end %>
+        </div>
+        <div class="review-option">
+          <div class="review-entry">
+            <% if review.contributor == current_user %>
+              <%= link_to review_path(review.contributor_id, review.id), data: { confirm: "投稿を削除するかにゃ？", cancel: "やめる", commit: "削除する", title: "確認", method: :delete }, class: "review-destroy" do %>
+                <p>削除</p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="review-date pull-right">
+            <%= review.created_at.strftime('%m/%d %H:%M') %>
+          </div>
+        </div>
+      </div>
+      <div class="review-content">
+        <%= safe_join(review.content.split("\n"),tag(:br)) %>
+      </div>
+    </li>
+  <% end %>
+<% end %>
