@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   root "home#home"
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
-  
+
   devise_scope :user do
     get "signup", to: "users/registrations#new"
     get "signin", to: "users/sessions#new"
     post 'guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-  
+
   resources :users, only: [:new, :create, :show] do
     collection do
       get :likes

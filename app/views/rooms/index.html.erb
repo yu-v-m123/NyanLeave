@@ -2,8 +2,8 @@
 <div class="message-list">
   <h2 class="message-list-title">メッセージ一覧</h2>
   <div class="message-list-container">
-    <% if @anotherEntries.present? %>
-      <% @anotherEntries.includes([:room, user: [:profile]]).each do |e| %>
+    <% if @another_entries.present? %>
+      <% @another_entries.includes([:room, user: [:profile]]).each do |e| %>
         <table class="message-list-container-table">
           <tr>
             <td>

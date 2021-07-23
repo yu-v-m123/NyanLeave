@@ -1,14 +1,16 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = current_user
-    @currentEntries = current_user.entries
-    myRoomIds = []
-    @currentEntries.includes([:room]).each do |entry|
-      myRoomIds << entry.room.id
+    @current_entries = current_user.entries
+    my_room_ids = []
+    @current_entries.includes([:room]).each do |entry|
+      my_room_ids << entry.room.id
     end
-    @anotherEntries = Entry.where(room_id: myRoomIds).where.not(user_id: @user.id).order(created_at: :desc)
+    @another_entries = Entry.where(room_id: my_room_ids).where.not(user_id: @user.id).order(created_at: :desc)
   end
-  
+
   def show
     @room = Room.find(params[:id])
     if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
