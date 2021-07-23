@@ -12,7 +12,9 @@
       </li>
     </ul>
     <div class="guest-login">
-      <%= link_to "ゲストでログイン", root_path, class: "guest-login-text" %>
+      <% unless user_signed_in? %>
+        <%= link_to "ゲストでログイン", guest_sign_in_path, method: :post, class: "guest-login-text" %>
+      <% end %>
     </div>
   </div>
   <div class="home-contents">

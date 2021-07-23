@@ -50,6 +50,7 @@
     </div>
     <% if current_user.id == @post.user_id %>
       <%= link_to "飼い主さんのマイページ", user_path(current_user), class: "back-cares-link" %></li>
+      <%= link_to "編集する", edit_post_path(@post), class: "back-cares-link" %></li>
     <% else %>
       <%= link_to "飼い主さんのマイページ", care_owner_path(@post.user.id), class: "back-cares-link" %></li>
     <% end %>

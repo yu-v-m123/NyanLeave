@@ -23,8 +23,8 @@
     <ul class="owner-link">
       <li class="owner-link-list"><%= link_to "依頼詳細ページに戻る", :back, class: "transition-link" %></li>
       <% unless @user.id == current_user.id %>
-      <% if @isRoom == true %>
-        <li class="owner-link-message-come"><%= link_to "トークルームに行く", room_path(@roomId), class: "owner-link-message-come-btn" %></li>
+      <% if @is_room == true %>
+        <li class="owner-link-message-come"><%= link_to "トークルームに行く", room_path(@room_id), class: "owner-link-message-come-btn" %></li>
       <% else %>
         <%= form_for @room do |f| %>
           <%= fields_for @entry do |e| %>
