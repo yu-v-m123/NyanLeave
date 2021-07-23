@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "signup", to: "users/registrations#new"
     get "signin", to: "users/sessions#new"
+    post 'guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   
   resources :users, only: [:new, :create, :show] do
