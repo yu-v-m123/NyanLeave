@@ -38,7 +38,7 @@
   </div>
   <% if user_signed_in? %>
     <div class="reivew-create">
-      <p class="reivew-create-title">レビューを投稿する</h3>
+      <p class="reivew-create-title">レビューを投稿する</p>
       <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %>
     </div>
   <% end %>
