@@ -35,4 +35,7 @@
   <div class="transition">
     既にアカウントをお持ちの方 <span class="transition-link"><%= render "users/shared/links" %></span>
   </div>
+  <% unless user_signed_in? %>
+    <%= link_to "ゲストでログイン", guest_sign_in_path, method: :post, class: "guest-login-text" %>
+  <% end %>
 </div>

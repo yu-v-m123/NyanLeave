@@ -50,4 +50,7 @@
       color: #2d7570;
     }
   }
+  .guest-login-text {
+    @include link-jump;
+  }
 }
