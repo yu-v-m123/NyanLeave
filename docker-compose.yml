@@ -22,7 +22,8 @@ services:
     # depends_on:
     #   - db
     extends:
-      file: ./docker/mysql/password.yml
+      file:
+        - ./docker/mysql/password.yml
       service: password
 
   # db:
