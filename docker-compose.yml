@@ -21,10 +21,9 @@ services:
       - log_data:/app/log
     # depends_on:
     #   - db
-    extends:
-      file:
-        - ./docker/mysql/password.yml
-      service: password
+    # extends:
+    #   file: ./docker/mysql/password.yml
+    #   service: password
 
   # db:
   #   build:
