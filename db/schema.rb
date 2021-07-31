@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(version: 2021_07_19_192517) do
     t.string "name"
     t.string "age"
     t.string "img"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
   create_table "direct_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,7 +104,6 @@ ActiveRecord::Schema.define(version: 2021_07_19_192517) do
     t.index ["review_id"], name: "index_users_on_review_id"
   end
 
-  add_foreign_key "cats", "users"
   add_foreign_key "direct_messages", "rooms"
   add_foreign_key "direct_messages", "users"
   add_foreign_key "entries", "rooms"
