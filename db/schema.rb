@@ -98,10 +98,8 @@ ActiveRecord::Schema.define(version: 2021_07_19_192517) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "review_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["review_id"], name: "index_users_on_review_id"
   end
 
   add_foreign_key "direct_messages", "rooms"
@@ -115,5 +113,4 @@ ActiveRecord::Schema.define(version: 2021_07_19_192517) do
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "users", column: "contributor_id"
-  add_foreign_key "users", "reviews"
 end
