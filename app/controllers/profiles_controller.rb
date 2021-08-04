@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_post,only: [:edit]
 
   def new
     @profile = Profile.new
@@ -34,5 +35,13 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:user_name, :address, :introduction, :cat_name, :age, :image)
+  end
+
+  def correct_post
+    @profile = Profile.find(params[:id])
+    unless @profile.user.id == current_user.id
+      flash[:alert] = "URL直叩きはだめにゃ！"
+      redirect_to root_path
+    end
   end
 end
