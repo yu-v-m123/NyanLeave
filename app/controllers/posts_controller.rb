@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_post,only: [:show, :edit]
   def index
     @user_posts = current_user.posts.page(params[:page]).per(10)
     @count = current_user.posts.count
@@ -57,5 +58,13 @@ class PostsController < ApplicationController
     params.require(:post).permit(:start, :finish, :place, :feature).merge(
       user_id: current_user.id, profile_id: @profile.id
     )
+  end
+
+  def correct_post
+    @post = Post.find(params[:id])
+    unless @post.user.id == current_user.id
+      flash[:alert] = "URL直叩きはだめにゃ！"
+      redirect_to root_path
+    end
   end
 end
