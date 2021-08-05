@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_post,only: [:edit]
+  before_action :correct_profile,only: [:edit]
 
   def new
     @profile = Profile.new
@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:user_name, :address, :introduction, :cat_name, :age, :image)
   end
 
-  def correct_post
+  def correct_profile
     @profile = Profile.find(params[:id])
     unless @profile.user.id == current_user.id
       flash[:alert] = "URL直叩きはだめにゃ！"
