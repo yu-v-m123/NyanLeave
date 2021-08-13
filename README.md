@@ -24,3 +24,5 @@
 ・AWS（VPC,EC2,RDS,Route53）<br>
 
 ## ER図
+![draw](https://user-images.githubusercontent.com/73244861/129417356-c9a15a90-c99a-42f3-a4c9-f936c7b322b3.png)
+
