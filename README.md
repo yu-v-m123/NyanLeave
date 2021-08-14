@@ -1,6 +1,6 @@
 # NyanLeave
 猫のお世話を代わりの人に依頼することができるマッチングサービス<br>
-**URL : http://nyanleave.com/**<br>
+**URL : <a href="http://nyanleave.com/" target="_blank">http://nyanleave.com/</a>**<br>
 #### トップページ
 ![toppage](https://user-images.githubusercontent.com/73244861/129442630-93bd8bb6-7c3b-46bd-a3a1-557268d8f3c8.jpg)
 
