@@ -35,7 +35,7 @@
 ![名称未設定 (4)](https://user-images.githubusercontent.com/73244861/129443029-89e2ff4a-1802-4bef-8c71-bd1179286ad2.png)
 
 ## 機能一覧
-⚪︎ 基本機能<br>
+⚪︎ 基本機能<br><br>
 &emsp;・新規会員登録・ログイン・ログアウト機能（Devise）<br>
 &emsp;・ゲストログイン機能<br>
 &emsp;・ユーザー情報編集、削除機能<br>
@@ -46,7 +46,7 @@
 &emsp;・お気に入り機能（Ajax）<br>
 &emsp;・レビュー投稿・削除機能<br>
 &emsp;・チャット機能（ActionCable）<br><br>
-⚪︎ その他<br>
+⚪︎ その他<br><br>
 &emsp;・依頼検索機能（Ransack）<br>
 &emsp;・ページネーション機能（Kaminari）<br>
 &emsp;・エラー、フラッシュメッセージのカスタマイズ（toastr）<br>
