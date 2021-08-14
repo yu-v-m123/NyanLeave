@@ -50,4 +50,27 @@
 &emsp;・依頼検索機能（Ransack）<br>
 &emsp;・ページネーション機能（Kaminari）<br>
 &emsp;・エラー、フラッシュメッセージのカスタマイズ（toastr）<br>
-&emsp;・バリデーション
+&emsp;・バリデーション<br>
+&emsp;・GithubのIssuse,プルリクを活用した擬似チーム開発
+
+## このアプリの使い方
+ゲストユーザーも用意しているので、トップページからご利用できます。
+## 会員登録後の流れ
+トップページから会員登録画面へ進んでください。登録後、プロフィール登録画面へ遷移します。<br><br>
+<img width="1680" alt="bf987ac255904c70c9c10075d0de889f" src="https://user-images.githubusercontent.com/73244861/129446837-5167c14a-cdfc-435b-9c98-7f044c020b9a.png"><br><br>
+ここでは飼っている猫の写真をアップロードしてください。<br>また、全ての項目を入力しないと、バリデーションに引っかかってしまいます。<br>
+登録後はマイページに遷移します。<br><br>
+![screencapture-nyanleave-profiles-new-2021-08-14-21_52_44](https://user-images.githubusercontent.com/73244861/129446916-8d24ac07-48ff-4b72-926d-f9186d5c304c.png)<br><br>
+## 猫を預ける
+ヘッダーの`猫を預ける`をクリックし、猫を預ける`開始日`と、依頼が完了する`終了日`を記入し、お世話してもらうために、`お世話場所`を選択します。<br>
+`特徴`には、猫の好きな食べ物や、嫌がること、トイレやご飯の回数などを、細かく記載しましょう。<br><br>
+![screencapture-nyanleave-posts-new-2021-08-14-22_36_08](https://user-images.githubusercontent.com/73244861/129448012-58c8605f-bb7d-4170-b272-20ce9e39b534.png)<br><br>
+## 猫をお世話する
+今度は自分が猫のお世話をしてみましょう。<br>
+ヘッダーの`猫をお世話する`から、全ての依頼を閲覧できます。<br><br>
+![f527764a-c6c1-4a3a-be11-c5e1c1353099](https://user-images.githubusercontent.com/73244861/129448161-c664f865-a5d7-44a4-a339-ff96344147eb.png)<br><br>
+お世話したい猫が決まったら、依頼を選択し、詳細画面下部の`飼い主さんのマイページ`をクリックします。<br><br>
+![screencapture-nyanleave-cares-2-2021-08-14-22_44_41](https://user-images.githubusercontent.com/73244861/129448321-c2b500b5-d49e-4cc0-ae28-d1d7eaae932b.png)<br><br>
+`メッセージを始める`からチャットを開始し、依頼の詳しい内容や、時間などを飼い主さんと調整しましょう。<br><br>
+![be5322aa-ab19-423f-b154-6422f58102ae](https://user-images.githubusercontent.com/73244861/129448528-2c513657-b2e8-4dae-a7fa-54d68860f19c.png)
+
